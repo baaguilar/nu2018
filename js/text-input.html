@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>MarketWatch</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                font-size:1em;
+            }
+            div {
+                padding:10px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Textfield</h1>
+        <input type="text" name="textbox" id="textbox" maxlength="50" placeholder="Enter name" />
+        <div>
+            My text: 
+            <h2> </h2>
+        </div>
+        <div>
+            Character count: 
+            <h3> </h3>
+        </div>
+        
+        <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+        <script>
+            function textInput(){
+                var text = field.value;
+                document.querySelector('h2').textContent = text;
+                document.querySelector('h3').textContent = text.length;
+            }
+            
+            var field = document.getElementsByName('textbox')[0];
+            // var field = document.getElementById('textbox');
+            field.onkeyup = textInput;
+        </script>
+    </body>
+</html>

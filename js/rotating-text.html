@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>MarketWatch</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                font-size:1em;
+            }
+            div {
+                padding:10px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Rotating Text</h1>
+        <div id="results">Northwestern </div>
+        <script>
+            // JavaScript here
+            function rotate(){
+                var text = document.getElementById("results").textContent;
+                var textArray = text.split("");
+                var removed = textArray.splice(-1, 1);
+                var added = textArray.splice(0,0,removed);
+                document.getElementById("results").innerHTML = textArray.join("");
+            }
+            
+            setInterval(rotate,100);
+            
+        </script>
+    </body>
+</html>
