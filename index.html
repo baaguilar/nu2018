@@ -407,11 +407,11 @@
         <script>
             $(document).ready(function() {
 
-                let mostpop__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&period_start=15m&limit=25';
+                var mostpop_feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&period_start=15m&limit=25';
                 
-                $.getJSON( mostpop__feed, function( data )  {
+                $.getJSON( mostpop_feed, function( data )  {
                     
-                    let items = data.data;
+                    var items = data.data;
                     for (var i = 0; i < 10; i++){
                         $("<div>", { 'class': 'mostpop__tile','id': i}).appendTo("#mostpop__lineup");   
                         $("<div>", { 'class': 'mostpop__wrapper'}).appendTo("#"+i);
@@ -421,11 +421,11 @@
                     
                 });
 
-                let main__feed = 'main__feed.json';
+                var main_feed = 'main__feed.json';
                 
-                $.getJSON( main__feed, function (data) {
+                $.getJSON( main_feed, function (data) {
                     
-                    let items = data;
+                    var items = data;
                     for (var i = 0; i < 9; i++){
                         
                         if(i === 0){
