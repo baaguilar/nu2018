@@ -1,0 +1,21 @@
+<html>
+<body>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function() {
+                
+                var url = "http://stich.it/api/create-stich/";
+                
+                $.post( url, { urls: "http://stich.it/api/create-stich/urls=https://www.washingtonpost.com/amphtml/world/national-security/with-trump-strategy-unclear-us-allies-turn-to-moscow-to-secure-their-interests-in-syria/2018/07/14/0a2a3b34-8551-11e8-8f6c-46cb43e3f306_story.html+https://www.washingtonpost.com/amphtml/world/national-security/mueller-pushing-to-wrap-up-parts-of-russia-probe-faces-question-of-american-involvement/2018/07/14/4bdcef90-8786-11e8-8f6c-46cb43e3f306_story.html" } )
+                .done(function( data ) {
+                    alert( "Data Loaded: " + data );
+                });;
+                
+            });
+        </script>
+</body>
+
+</html>
