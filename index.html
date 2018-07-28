@@ -1,7 +1,7 @@
 <html>
     <head>
-        <title>Sandbox - MarketWatch</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sandbox: Flex/Grid - MarketWatch</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Muli:400,700,800|Source+Sans+Pro:400,600,700|Lato:400,700" rel="stylesheet" type="text/css">
         <link href="https://mw4.wsj.net/mw5/content/images/favicons/apple-touch-icon.png" rel="apple-touch-icon"/>
         <link href="https://mw4.wsj.net/mw5/content/images/favicons/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
@@ -132,7 +132,7 @@
                     $("#loading").fadeOut("slow");
                 });
 
-                var main__feed = 'feed/main__feed.json';
+                var main__feed = 'https://api.wsj.net/api/deltoro-mw/marketwatchsite/topnews?flatplanid=front-page';
                 
                 $.getJSON( main__feed, function (data) {
                     
