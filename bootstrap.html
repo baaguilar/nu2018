@@ -1,21 +1,102 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            #header {
+                background-color:black;
+            }
+            
+            #lede {
+                background-color:aqua;
+            }
+            
+            #first {
+                background-color:cadetblue;
+            }
+            
+            #second {
+                background-color:aquamarine;
+            }
+            
+            #sidebar {
+                background-color:coral;
+            }
+            
+            #mostpop {
+                background-color:deepskyblue;
+            }
+            
+            #morenews {
+                background-color:cornflowerblue;
+            }
+            
+            #footer {
+                background-color:black;
+            }
+        </style>
 
-    <title>Sandbox: Bootstrap 4 - MarketWatch</title>
-  </head>
-  <body>    
+        <title>Sandbox: Bootstrap 4 - MarketWatch</title>
+    </head>
+    <body>    
       
-      <h1>Hello, world!</h1>
-      <div class="container">
-        <!-- Content here -->
-      </div>
+    <div class="container">
+        
+        <div class="row">
+            <div id="header" class="col-12">
+                Header
+            </div>
+        </div>
+        
+        <div class="row">
+            <div id="top" class="col-md-12 col-lg-8 col-xl-9">
+ 
+                <div class="row">
+                    <div id="lede" class="col-md-12 col-lg-12 col-xl-8">
+                    1 of 3
+                    </div>
+                    <div id="main" class="col-md-12 col-lg-12 col-xl-4">
+                        <div class="row">
+                            <div id="first" class="col-12 col-md-6 col-lg-6 col-xl-12">
+                                2 of 3
+                            </div>
+                            <div id="second" class="col-12 col-md-6 col-lg-6 col-xl-12">
+                                3 of 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div id="sidebar" class="col-md-12 col-lg-4 col-xl-3">
+                Ad
+            </div>
+        </div>
+        
+        <div class="row">
+            <div id="mostpop" class="col-12">
+                Most Popular
+            </div>
+        </div>
+        
+        <div class="row">
+            <div id="morenews" class="col-12">
+                More News
+            </div>
+        </div>
+        
+        <div class="row">
+            <div id="footer" class="col-12">
+                Footer
+            </div>
+        </div>
+
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
