@@ -115,9 +115,9 @@
         <script>
             $(document).ready(function() {
 
-                var mostpop_feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&period_start=15m&limit=25';
+                var mostpop__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&period_start=15m&limit=25&tag=Doctype:%20103';
                 
-                $.getJSON( mostpop_feed, function( data )  {
+                $.getJSON( mostpop__feed, function( data )  {
                     
                     var items = data.data;
                     for (var i = 0; i < 10; i++){
@@ -132,28 +132,28 @@
                     $("#loading").fadeOut("slow");
                 });
 
-                var main__feed = 'feed/main_feed.json';
+                var main__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&pub_date_start=24h&limit=15&tag=Doctype: 103';
                 
                 $.getJSON( main__feed, function (data) {
                     
-                    var items = data;
+                    var items = data.data;
                     for (var i = 0; i <= 8; i++){
                         
                         if(i === 0){
                             $("<div>", { 'class': 'lede__tile','id': "story-"+i}).appendTo("#lede");   
-                            $("<div>", { 'class': 'lede__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].images[5].url+"' width='100%' border='0' alt='"+items[i].headline+"' /></a>"}).appendTo("#story-"+i); 
-                            $("<div>", { 'class': 'lede__hed', 'html': "<h1><a href='"+items[i].url+"' target='_blank'>"+items[i].headline+"</a></h1>"}).appendTo("#story-"+i);
+                            $("<div>", { 'class': 'lede__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
+                            $("<div>", { 'class': 'lede__hed', 'html': "<h1><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h1>"}).appendTo("#story-"+i);
                         } else if (i === 1 || i === 2){
                             
                             $("<div>", { 'class': 'main__tile','id': "story-"+i}).appendTo("#main");  
-                            $("<div>", { 'class': 'main__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].images[5].url+"' width='100%' border='0' alt='"+items[i].headline+"' /></a>"}).appendTo("#story-"+i); 
-                            $("<div>", { 'class': 'main__hed', 'html': "<h3><a href='"+items[i].url+"' target='_blank'>"+items[i].headline+"</a></h3>"}).appendTo("#story-"+i);
+                            $("<div>", { 'class': 'main__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
+                            $("<div>", { 'class': 'main__hed', 'html': "<h3><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h3>"}).appendTo("#story-"+i);
                             
                         }  else if (i >=3){
                             
                            $("<div>", { 'class': 'morenews__tile','id': "story-"+i}).appendTo("#morenews__lineup");  
-                            $("<div>", { 'class': 'morenews__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].images[5].url+"' width='100%' border='0' alt='"+items[i].headline+"' /></a>"}).appendTo("#story-"+i); 
-                            $("<div>", { 'class': 'morenews__hed', 'html': "<h4><a href='"+items[i].url+"' target='_blank'>"+items[i].headline+"</a></h4>"}).appendTo("#story-"+i);
+                            $("<div>", { 'class': 'morenews__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
+                            $("<div>", { 'class': 'morenews__hed', 'html': "<h4><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h4>"}).appendTo("#story-"+i);
                             
                         } 
                     }
@@ -166,13 +166,13 @@
                     
                     $.getJSON( main__feed, function (data) {
 
-                        var items = data;
+                        var items = data.data;
                         for (var i = 9; i <= 14; i++){
 
                             //add an additional 10 items
                             $("<div>", { 'class': 'morenews__tile','id': "story-"+i}).hide().appendTo("#morenews__lineup");  
-                            $("<div>", { 'class': 'morenews__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].images[5].url+"' width='100%' border='0' alt='"+items[i].headline+"' /></a>"}).appendTo("#story-"+i); 
-                            $("<div>", { 'class': 'morenews__hed', 'html': "<h4><a href='"+items[i].url+"' target='_blank'>"+items[i].headline+"</a></h4>"}).appendTo("#story-"+i);
+                            $("<div>", { 'class': 'morenews__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
+                            $("<div>", { 'class': 'morenews__hed', 'html': "<h4><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h4>"}).appendTo("#story-"+i);
 
                         }
 
