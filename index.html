@@ -158,15 +158,15 @@
         <script>
             $(document).ready(function() {
                 
-                let mostpop__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&period_start=15m&limit=25&tag=Doctype:%20103';
+                let mostpop_feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&period_start=15m&limit=25&tag=Doctype:%20103';
                 
-                let main__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&pub_date_start=24h&limit=15&tag=Doctype: 103';
+                let main_feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&pub_date_start=24h&limit=15&tag=Doctype: 103';
                 
                 let storyCount = 0;
                 
                 $.when(
                 
-                    $.getJSON( mostpop__feed, function( data )  {
+                    $.getJSON( mostpop_feed, function( data )  {
 
                         let items = data.data;
                         console.log(data.data);
@@ -186,7 +186,7 @@
                         $("<div>", { 'class': "alert alert-danger"}).text("Failed to load.").appendTo("#mostpop__lineup");
                     }),
                     
-                    $.getJSON( main__feed, function (data) {
+                    $.getJSON( main_feed, function (data) {
                     
                         let items = data.data;
                         for (let i = 0; i <= 8; i++){
