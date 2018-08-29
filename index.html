@@ -158,19 +158,19 @@
         <script>
             $(document).ready(function() {
                 
-                let mostpop_feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&period_start=15m&limit=25&tag=Doctype:%20103';
+                var mostpop__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&period_start=15m&limit=25&tag=Doctype:%20103';
                 
-                let main_feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&pub_date_start=24h&limit=15&tag=Doctype: 103';
+                var main__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&pub_date_start=24h&limit=15&tag=Doctype: 103';
                 
-                let storyCount = 0;
+                var storyCount = 0;
                 
                 $.when(
                 
-                    $.getJSON( mostpop_feed, function( data )  {
+                    $.getJSON( mostpop__feed, function( data )  {
 
-                        let items = data.data;
+                        var items = data.data;
                         console.log(data.data);
-                        for (let i = 0; i < 10; i++){                        
+                        for (var i = 0; i < 10; i++){                        
 
                             $("<div>", { 'class': 'card','id': i, 'html': "<a href='"+items[i].url+"' target='_blank'><img class='card-img-top' src='"+items[i].image_url+"' alt='"+items[i].title+"' /></a>"}).appendTo("#mostpop__lineup .card-deck");
                             $("<div>", { 'class': 'card-body', 'html': "<h5 class='card-title'><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h5><a href='"+items[i].url+"' class='btn btn-outline-success'>Read More</a>"}).appendTo("#mostpop__lineup #"+i);
@@ -186,10 +186,10 @@
                         $("<div>", { 'class': "alert alert-danger"}).text("Failed to load.").appendTo("#mostpop__lineup");
                     }),
                     
-                    $.getJSON( main_feed, function (data) {
+                    $.getJSON( main__feed, function (data) {
                     
-                        let items = data.data;
-                        for (let i = 0; i <= 8; i++){
+                        var items = data.data;
+                        for (var i = 0; i <= 8; i++){
 
                             if(i === 0){
 
