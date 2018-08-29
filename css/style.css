@@ -27,14 +27,60 @@
         text-decoration: underline;
     }
 
-    #logo {
-        width:200px;
-        margin:10px;
-        margin-left:auto;
-        margin-right:auto;
-
+/* LOADING */
+        
+    #loading {
+        width:100%;
+        min-height:100%;
+        position:fixed;
+        top:0;
+        left:0;
+        background-color:#fff;
+        z-index:100;
     }
 
+    #loading-spinner {
+        position:absolute;
+        top:40%;
+        width:100%;
+        text-align:center;
+    }
+
+    .lds-ring {
+      display: inline-block;
+      position: relative;
+      width: 64px;
+      height: 64px;
+    }
+    .lds-ring div {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      width: 51px;
+      height: 51px;
+      margin: 6px;
+      border: 6px solid #01ac4e;
+      border-radius: 50%;
+      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-color: #01ac4e transparent transparent transparent;
+    }
+    .lds-ring div:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+    .lds-ring div:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+    .lds-ring div:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+    @keyframes lds-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
 
 /* GRID AREAS */
 
@@ -47,8 +93,7 @@
 
     #header {
         grid-area: header;
-        height:71px;
-        background-color: black;
+        height:51px;
         z-index:1000;
     }
 
@@ -102,7 +147,6 @@
 /* HEADER */  
     #logo {
         width:200px;
-        margin:10px;
     }
 
 /* FIRST, SECOND */
@@ -114,7 +158,7 @@
     #sidebar img {
         position: -webkit-sticky; /* Safari */
         position: sticky;
-        top: 81px;
+        top: 61px;
     }
 
 /* MOST POPULAR */
@@ -138,14 +182,15 @@
         margin:0;
     }
 
-    #mostpop__lineup .card-deck .card {
-        margin:0;
-        padding:0;
-    }
-
-    #mostpop__lineup .cards {
+    #mostpop__lineup .card {
         margin:10px 10px 10px 0px;
-    }        
+    }   
+
+    #mostpop__lineup .card-img-top {
+        width: 100%;
+        height: 10vw;
+        object-fit: cover;
+    }
 
 /* MORE NEWS */
     #morenews__lineup {
@@ -177,6 +222,7 @@
 /* SEE MORE */
     #seemore {
         text-align:center;
+        padding-bottom:20px;
     }
 
 /* FOOTER */
@@ -205,13 +251,9 @@
         "morenews morenews morenews morenews morenews morenews morenews morenews"
         "seemore  seemore  seemore  seemore  seemore  seemore  seemore  seemore"        
         "footer   footer   footer   footer   footer   footer   footer   footer";   
-    } 
+    }  
 
-    .main__tile {
-        width:290px;
-    } 
-
-    #mostpop__lineup .cards {
+    #mostpop__lineup .card {
         min-width:270px;
     }  
 
@@ -231,7 +273,7 @@
         "footer   footer   footer   footer   footer   footer";
     }
 
-    #mostpop__lineup .cards {
+    #mostpop__lineup .card {
         min-width:230px;
     }
 }   
@@ -284,6 +326,10 @@
 
     .morenews__tile {
         width:45%;
+    }
+    
+    #seemore {
+        padding-bottom:0px;
     }
 } 
 
