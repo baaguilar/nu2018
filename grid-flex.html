@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Sandbox: Grid+Flexbox - MarketWatch</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <style>
+            .container {
+                display:grid;
+                grid-template-columns: repeat(8, 145px);
+                grid-template-rows: 50px auto auto auto auto auto 100px;
+                justify-content: center; /* aligns the grid in the center of your container */
+                grid-column-gap: 10px; /* gap between columns */
+                grid-row-gap: 10px; /* gap between rows */
+                grid-template-areas: 
+                "header   header   header   header   header   header   header   header"
+                "lede     lede     lede     lede     first    first    sidebar  sidebar"
+                "lede     lede     lede     lede     second   second   sidebar  sidebar"    
+                "mostpop  mostpop  mostpop  mostpop  mostpop  mostpop  mostpop  mostpop"
+                "morenews morenews morenews morenews morenews morenews morenews morenews"
+                "seemore  seemore  seemore  seemore  seemore  seemore  seemore  seemore"        
+                "footer   footer   footer   footer   footer   footer   footer   footer";
+                
+            }
+            
+    /* GRID AREAS */
+
+            #header {
+                grid-area: header;
+                height:50px;
+                background-color: black;
+            }
+
+            #lede {
+                grid-area: lede;
+                background-color:aqua;
+            }
+
+            #first {
+                grid-area: first;
+                background-color:cadetblue;
+            }
+            
+            #second {
+                grid-area: second;
+                background-color:aquamarine;
+            }
+
+            #sidebar {
+                grid-area: sidebar;
+                background-color:coral;
+            }
+            
+            #mostpop {
+                grid-area: mostpop;
+                background-color:deepskyblue;
+            }
+
+            #morenews {
+                grid-area: morenews;
+                background-color:cornflowerblue;
+            }
+            
+            #seemore {
+                grid-area: seemore;
+                background-color:lightgray;
+            }
+
+            #footer {
+                grid-area: footer;
+                background-color: black;
+                height:100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="header">Header</div>
+            <div id="lede">Lede</div>
+            <div id="first">1 of 2</div>
+            <div id="second">2 of 2</div>
+            <div id="sidebar">Ad</div>
+            <div id="mostpop">Most Popular</div>
+            <div id="morenews">More News</div>
+            <div id="seemore">See More</div>
+            <div id="footer">Footer</div>
+        </div>
+    </body>
+</html>

@@ -1,7 +1,11 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
-        <title>Sandbox: Flex/Grid - MarketWatch</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Sandbox: Grid+Flexbox+Bootstrap - MarketWatch</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Muli:400,700,800|Source+Sans+Pro:400,600,700|Lato:400,700" rel="stylesheet" type="text/css">
         <link href="https://mw4.wsj.net/mw5/content/images/favicons/apple-touch-icon.png" rel="apple-touch-icon"/>
         <link href="https://mw4.wsj.net/mw5/content/images/favicons/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
@@ -32,14 +36,12 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"> 
     </head>
     <body>
-        <div id="loading">
-            <div id="loading-spinner">
-                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-            </div>
-        </div>
-        <div class="container">
-            <div id="header">
-                <div class="header-row">
+        <div id="grid">
+            <div id="header" class="sticky-top">
+                <div class="pos-f-t">
+                  <nav class="navbar navbar-dark bg-dark">
+
+                    <!-- MarketWatch logo -->
                     <div id="logo">
                         <a href="https://www.marketwatch.com/" data-track-code="MW_Masthead_Logo">
                             <!--?xml version="1.0" encoding="utf-8"?-->
@@ -83,145 +85,205 @@
                             </svg>
                         </a>
                     </div>
+
+                    <!-- Search button -->  
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Search">
+                      <i class="fa fa-search"></i>
+                    </button>  
+
+                  </nav>
+
+                  <!-- Hidden menu -->        
+                  <div class="collapse" id="navbarToggle">
+                    <div class="bg-dark px-4 pt-0 pb-4">
+                      <!-- Send to Google Search -->
+                      <form action="https://www.google.com/search" method="GET" class="form-inline">
+
+                        <!-- Pass hidden value to URL parameter -->  
+                        <input type="hidden" name="q" value="site:https://www.marketwatch.com">   
+
+                        <!-- Pass search text -->
+                        <input class="form-control mr-4 col-8" type="search" placeholder="Enter keyword" aria-label="Search" name="q">
+                          <button class="btn btn-outline-success col-3" type="submit">Search</button>
+
+                        <div class="text-center">
+
+                        </div>   
+                    </form> 
+                    </div>
+                  </div> 
+                    
                 </div>
             </div>
             <div id="lede">
+                <div class="cards">
+                    <div class="card">
+                      <img class="card-img-top" src="http://s.marketwatch.com/public/resources/MWimages/MW-GB710_bull_ZG_20180112163642.jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <h2 class="card-title"><a href="#">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h2>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                </div>
             </div>
-            <div id="main">
+            <div id="first">
+                <div class="main__tile">
+                    <div class="main__image">
+                        <a href="https://www.marketwatch.com/story/now-would-be-the-time-for-apple-to-buy-tesla-and-kick-musk-out-of-the-drivers-seat-2018-08-27" target="_blank"><img src="http://s.marketwatch.com/public/resources/MWimages/MW-GC633_Tesla0_ZG_20180129125655.jpg" width="100%" border="0" alt="Now would be the time for Apple to buy Tesla, and kick Musk out of the driver’s seat"></a>
+                    </div>
+                    <div class="main__hed">
+                        <h5><a href="https://www.marketwatch.com/story/now-would-be-the-time-for-apple-to-buy-tesla-and-kick-musk-out-of-the-drivers-seat-2018-08-27" target="_blank">Now would be the time for Apple to buy Tesla, and kick Musk out of the driver’s seat</a></h5>
+                    </div>
+                </div>
+            </div>
+            <div id="second">
+                <div class="main__tile">
+                    <div class="main__image">
+                        <a href="https://www.marketwatch.com/story/now-would-be-the-time-for-apple-to-buy-tesla-and-kick-musk-out-of-the-drivers-seat-2018-08-27" target="_blank"><img src="http://s.marketwatch.com/public/resources/MWimages/MW-GC633_Tesla0_ZG_20180129125655.jpg" width="100%" border="0" alt="Now would be the time for Apple to buy Tesla, and kick Musk out of the driver’s seat"></a>
+                    </div>
+                    <div class="main__hed">
+                        <h5><a href="https://www.marketwatch.com/story/now-would-be-the-time-for-apple-to-buy-tesla-and-kick-musk-out-of-the-drivers-seat-2018-08-27" target="_blank">Now would be the time for Apple to buy Tesla, and kick Musk out of the driver’s seat</a></h5>
+                    </div>
+                </div>
             </div>
             <div id="sidebar">
                 <img src="img/etrade.png" width="300" height="250" />
             </div>
             <div id="mostpop">
-                <h5>Most Popular</h5>
-                <div id="mostpop__lineup"></div>
+                <h7>Most Popular</h7>
+                <div id="mostpop__lineup">
+            
+                    <!-- Sample Story Tile -->
+                    <div class="card-deck">
+                        <div class="cards">
+                            <div class="card">
+                                <a href="#"><img class="card-img-top" src="http://s.marketwatch.com/public/resources/MWimages/MW-GB710_bull_ZG_20180112163642.jpg" alt="Card image cap"></a>
+                              <div class="card-body">
+                                <h5 class="card-title"><a href="#">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h5>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card">
+                                <a href="#"><img class="card-img-top" src="http://s.marketwatch.com/public/resources/MWimages/MW-GB710_bull_ZG_20180112163642.jpg" alt="Card image cap"></a>
+                              <div class="card-body">
+                                <h5 class="card-title"><a href="#">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h5>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card">
+                                <a href="#"><img class="card-img-top" src="http://s.marketwatch.com/public/resources/MWimages/MW-GB710_bull_ZG_20180112163642.jpg" alt="Card image cap"></a>
+                              <div class="card-body">
+                                <h5 class="card-title"><a href="#">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h5>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card">
+                                <a href="#"><img class="card-img-top" src="http://s.marketwatch.com/public/resources/MWimages/MW-GB710_bull_ZG_20180112163642.jpg" alt="Card image cap"></a>
+                              <div class="card-body">
+                                <h5 class="card-title"><a href="#">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h5>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card">
+                                <a href="#"><img class="card-img-top" src="http://s.marketwatch.com/public/resources/MWimages/MW-GB710_bull_ZG_20180112163642.jpg" alt="Card image cap"></a>
+                              <div class="card-body">
+                                <h5 class="card-title"><a href="#">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h5>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card">
+                                <a href="#"><img class="card-img-top" src="http://s.marketwatch.com/public/resources/MWimages/MW-GB710_bull_ZG_20180112163642.jpg" alt="Card image cap"></a>
+                              <div class="card-body">
+                                <h5 class="card-title"><a href="#">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h5>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card">
+                                <a href="#"><img class="card-img-top" src="http://s.marketwatch.com/public/resources/MWimages/MW-GB710_bull_ZG_20180112163642.jpg" alt="Card image cap"></a>
+                              <div class="card-body">
+                                <h5 class="card-title"><a href="#">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h5>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                              </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
             </div>
             <div id="morenews">
-                <div id="morenews__lineup"></div>
-                <div id="morenews__get">
-                    <button>See More</button>
-                </div>
+                <div id="morenews__lineup">
+                    <div class="morenews__tile" id="story-3">
+                        <div class="morenews__image">
+                            <a href="https://www.marketwatch.com/story/two-lessons-from-lehman-brothers-2008-collapse-can-save-your-investments-2018-08-28" target="_blank"><img src="http://s.marketwatch.com/public/resources/MWimages/MW-GO533_lehman_ZG_20180819203315.jpg" width="100%" border="0" alt="Two lessons from Lehman Brothers’ 2008 collapse can save your investments"></a>
+                        </div>
+                        <div class="morenews__hed">
+                            <h6><a href="https://www.marketwatch.com/story/two-lessons-from-lehman-brothers-2008-collapse-can-save-your-investments-2018-08-28" target="_blank">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h6>
+                        </div>
+                    </div>
+                    <div class="morenews__tile" id="story-3">
+                        <div class="morenews__image">
+                            <a href="https://www.marketwatch.com/story/two-lessons-from-lehman-brothers-2008-collapse-can-save-your-investments-2018-08-28" target="_blank"><img src="http://s.marketwatch.com/public/resources/MWimages/MW-GO533_lehman_ZG_20180819203315.jpg" width="100%" border="0" alt="Two lessons from Lehman Brothers’ 2008 collapse can save your investments"></a>
+                        </div>
+                        <div class="morenews__hed">
+                            <h6><a href="https://www.marketwatch.com/story/two-lessons-from-lehman-brothers-2008-collapse-can-save-your-investments-2018-08-28" target="_blank">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h6>
+                        </div>
+                    </div>
+                    <div class="morenews__tile" id="story-3">
+                        <div class="morenews__image">
+                            <a href="https://www.marketwatch.com/story/two-lessons-from-lehman-brothers-2008-collapse-can-save-your-investments-2018-08-28" target="_blank"><img src="http://s.marketwatch.com/public/resources/MWimages/MW-GO533_lehman_ZG_20180819203315.jpg" width="100%" border="0" alt="Two lessons from Lehman Brothers’ 2008 collapse can save your investments"></a>
+                        </div>
+                        <div class="morenews__hed">
+                            <h6><a href="https://www.marketwatch.com/story/two-lessons-from-lehman-brothers-2008-collapse-can-save-your-investments-2018-08-28" target="_blank">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h6>
+                        </div>
+                    </div>
+                    <div class="morenews__tile" id="story-3">
+                        <div class="morenews__image">
+                            <a href="https://www.marketwatch.com/story/two-lessons-from-lehman-brothers-2008-collapse-can-save-your-investments-2018-08-28" target="_blank"><img src="http://s.marketwatch.com/public/resources/MWimages/MW-GO533_lehman_ZG_20180819203315.jpg" width="100%" border="0" alt="Two lessons from Lehman Brothers’ 2008 collapse can save your investments"></a>
+                        </div>
+                        <div class="morenews__hed">
+                            <h6><a href="https://www.marketwatch.com/story/two-lessons-from-lehman-brothers-2008-collapse-can-save-your-investments-2018-08-28" target="_blank">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h6>
+                        </div>
+                    </div>
+                    <div class="morenews__tile" id="story-3">
+                        <div class="morenews__image">
+                            <a href="https://www.marketwatch.com/story/two-lessons-from-lehman-brothers-2008-collapse-can-save-your-investments-2018-08-28" target="_blank"><img src="http://s.marketwatch.com/public/resources/MWimages/MW-GO533_lehman_ZG_20180819203315.jpg" width="100%" border="0" alt="Two lessons from Lehman Brothers’ 2008 collapse can save your investments"></a>
+                        </div>
+                        <div class="morenews__hed">
+                            <h6><a href="https://www.marketwatch.com/story/two-lessons-from-lehman-brothers-2008-collapse-can-save-your-investments-2018-08-28" target="_blank">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h6>
+                        </div>
+                    </div>
+                    <div class="morenews__tile" id="story-3">
+                        <div class="morenews__image">
+                            <a href="https://www.marketwatch.com/story/two-lessons-from-lehman-brothers-2008-collapse-can-save-your-investments-2018-08-28" target="_blank"><img src="http://s.marketwatch.com/public/resources/MWimages/MW-GO533_lehman_ZG_20180819203315.jpg" width="100%" border="0" alt="Two lessons from Lehman Brothers’ 2008 collapse can save your investments"></a>
+                        </div>
+                        <div class="morenews__hed">
+                            <h6><a href="https://www.marketwatch.com/story/two-lessons-from-lehman-brothers-2008-collapse-can-save-your-investments-2018-08-28" target="_blank">Two lessons from Lehman Brothers’ 2008 collapse can save your investments</a></h6>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div id="seemore">
+                <button type="button" class="btn btn-primary btn-block">See More</button>
             </div>
             <div id="footer">
-                <div class="footer-row">
-                   Copyright © 2018 MarketWatch, Inc. All rights reserved. 
-                </div>
+                    Copyright © 2018 MarketWatch, Inc. All rights reserved.
             </div>
         </div>
-        <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-        <script>
-            $(document).ready(function() {
-
-                var mostpop__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&period_start=15m&limit=25&tag=Doctype:%20103';
-                
-                $.getJSON( mostpop__feed, function( data )  {
-                    
-                    var items = data.data;
-                    for (var i = 0; i < 10; i++){
-                        $("<div>", { 'class': 'mostpop__tile','id': i}).appendTo("#mostpop__lineup");   
-                        $("<div>", { 'class': 'mostpop__wrapper'}).appendTo("#"+i);
-                        $("<div>", { 'class': 'mostpop__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#"+i+" .mostpop__wrapper");
-                        $("<div>", { 'class': 'mostpop__hed', 'html': "<h3><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h3>"}).appendTo("#"+i+" .mostpop__wrapper");
-                    }
-                    
-                })
-                .done(function(){
-                    $("#loading").fadeOut("slow");
-                });
-
-                var main__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&pub_date_start=24h&limit=15&tag=Doctype: 103';
-                
-                $.getJSON( main__feed, function (data) {
-                    
-                    var items = data.data;
-                    for (var i = 0; i <= 8; i++){
-                        
-                        if(i === 0){
-                            $("<div>", { 'class': 'lede__tile','id': "story-"+i}).appendTo("#lede");   
-                            $("<div>", { 'class': 'lede__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
-                            $("<div>", { 'class': 'lede__hed', 'html': "<h1><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h1>"}).appendTo("#story-"+i);
-                        } else if (i === 1 || i === 2){
-                            
-                            $("<div>", { 'class': 'main__tile','id': "story-"+i}).appendTo("#main");  
-                            $("<div>", { 'class': 'main__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
-                            $("<div>", { 'class': 'main__hed', 'html': "<h3><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h3>"}).appendTo("#story-"+i);
-                            
-                        }  else if (i >=3){
-                            
-                           $("<div>", { 'class': 'morenews__tile','id': "story-"+i}).appendTo("#morenews__lineup");  
-                            $("<div>", { 'class': 'morenews__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
-                            $("<div>", { 'class': 'morenews__hed', 'html': "<h4><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h4>"}).appendTo("#story-"+i);
-                            
-                        } 
-                    }
-                    
-                });
-                
-                function morenews__get(){
-                 
-                    $("#morenews__get button").remove();
-                    
-                    $.getJSON( main__feed, function (data) {
-
-                        var items = data.data;
-                        for (var i = 9; i <= 14; i++){
-
-                            //add an additional 10 items
-                            $("<div>", { 'class': 'morenews__tile','id': "story-"+i}).hide().appendTo("#morenews__lineup");  
-                            $("<div>", { 'class': 'morenews__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
-                            $("<div>", { 'class': 'morenews__hed', 'html': "<h4><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h4>"}).appendTo("#story-"+i);
-
-                        }
-
-                    })
-                    .done(function(){
-                        $(".morenews__tile").fadeIn("slow");
-                    });
-                    
-                } 
-                
-                $("#morenews__get button").on("click", function(){
-                   morenews__get();
-                });
-                
-                /*
-	            //feed to parse
-                var feed = "feed.xml";
-                var i = 0;
-
-                $.ajax(feed, {
-                    dataType:"xml",
-                    success:function(data) {
-                        var j = $(data).find("item").length;
-                        $(data).find("item").each(function () { // or "item" or whatever suits your feed
-                            var el = $(this);
-                            
-                            // Check for image thumbnail 
-                            var content = el.find("content\\:encoded").text();
-                            var pattern = /<img[^>]+src="([^">]+)"/;
-                            var img = pattern.exec(content);
-                            
-                            if(img){
-                                i++;
-                                console.log(i + " of " + j + " ------------------------");
-                                console.log("title      : " + el.find("title").text());
-                                console.log("link       : " + el.find("link").text());
-                                console.log("description: " + el.find("description").text());
-                                console.log("content: " + content);
-                                console.log("thumbnail: " + img[1]);
-                            }
-                    
-                        });
-
-
-                    }	
-                });
-                */
-                
-            });
-        </script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>
