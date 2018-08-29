@@ -158,9 +158,11 @@
         <script>
             $(document).ready(function() {
                 
-                const mostpop__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&period_start=15m&limit=25&tag=Doctype:%20103';
+                let mostpop__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&period_start=15m&limit=25&tag=Doctype:%20103';
                 
-                const main__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&pub_date_start=24h&limit=15&tag=Doctype: 103';
+                let main__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&pub_date_start=24h&limit=15&tag=Doctype: 103';
+                
+                let storyCount = 0;
                 
                 $.when(
                 
@@ -174,14 +176,20 @@
                             $("<div>", { 'class': 'card-body', 'html': "<h5 class='card-title'><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h5><a href='"+items[i].url+"' class='btn btn-outline-success'>Read More</a>"}).appendTo("#mostpop__lineup #"+i);
                         }
 
-                    }).fail(function(){
+                    })
+                    .done(function(){
+                        console.log('loaded most popular');
+                        storyCount++;
+                    })
+                    .fail(function(){
+                        storyCount--;
                         $("<div>", { 'class': "alert alert-danger"}).text("Failed to load.").appendTo("#mostpop__lineup");
                     }),
                     
                     $.getJSON( main__feed, function (data) {
                     
-                        var items = data.data;
-                        for (var i = 0; i <= 8; i++){
+                        let items = data.data;
+                        for (let i = 0; i <= 8; i++){
 
                             if(i === 0){
 
@@ -209,14 +217,22 @@
                             } 
                         }
                     })
+                    .done(function(){
+                        console.log('loaded the main stories');
+                        storyCount++;
+                    })
                     .fail(function(){
+                        storycount--;
                         $("<div>", { 'class': "alert alert-danger"}).text("Failed to load.").appendTo("#lede");
                         $("<div>", { 'class': "alert alert-danger"}).text("Failed to load.").appendTo("#morenews");
                     })
                 
                 ).then(
-                
-                    $("#loading").fadeOut("slow")
+                    
+                    setTimeout(function() { 
+                        console.log(storyCount);
+                        $("#loading").fadeOut("slow");
+                    }, 1000)
                     
                 );
                 
