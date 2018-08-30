@@ -160,7 +160,7 @@
                 
                 var mostpop__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&period_start=15m&limit=25&tag=Doctype:%20103';
                 
-                var main__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&pub_date_start=24h&limit=15&tag=Doctype: 103';
+                var main__feed = 'https://api.parsely.com/v2/analytics/posts?apikey=marketwatch.com&secret=d8mbV6bMpQyZhD9asw7vvXhIg6KoCEBD4A0xMO4MYGA&pub_date_start=24h&limit=25&tag=Doctype: 103';
                 
                 var storyCount = 0;
                 
@@ -169,11 +169,10 @@
                     $.getJSON( mostpop__feed, function( data )  {
 
                         var items = data.data;
-                        console.log(data.data);
                         for (var i = 0; i < 10; i++){                        
 
                             $("<div>", { 'class': 'card','id': i, 'html': "<a href='"+items[i].url+"' target='_blank'><img class='card-img-top' src='"+items[i].image_url+"' alt='"+items[i].title+"' /></a>"}).appendTo("#mostpop__lineup .card-deck");
-                            $("<div>", { 'class': 'card-body', 'html': "<h5 class='card-title'><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h5><a href='"+items[i].url+"' class='btn btn-outline-success'>Read More</a>"}).appendTo("#mostpop__lineup #"+i);
+                            $("<div>", { 'class': 'card-body', 'html': "<h5 class='card-title'><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h5><a href='"+items[i].url+"' class='btn btn-outline-primary'>Read More</a>"}).appendTo("#mostpop__lineup #"+i);
                         }
 
                     })
@@ -200,13 +199,13 @@
 
                                 $("<div>", { 'class': 'main__tile','id': "story-"+i}).appendTo("#first");  
                                 $("<div>", { 'class': 'main__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
-                                $("<div>", { 'class': 'main__hed', 'html': "<h4><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h4>"}).appendTo("#story-"+i);
+                                $("<div>", { 'class': 'main__hed', 'html': "<h5><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h5>"}).appendTo("#story-"+i);
 
                             } else if (i === 2){
 
                                 $("<div>", { 'class': 'main__tile','id': "story-"+i}).appendTo("#second");  
                                 $("<div>", { 'class': 'main__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
-                                $("<div>", { 'class': 'main__hed', 'html': "<h4><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h4>"}).appendTo("#story-"+i);
+                                $("<div>", { 'class': 'main__hed', 'html': "<h5><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h5>"}).appendTo("#story-"+i);
 
                             }  else if (i >=3){
 
@@ -235,6 +234,34 @@
                     }, 1000)
                     
                 );
+                
+                function seemore__get(){
+                 
+                    $("#seemore button").remove();
+                    
+                    $.getJSON( main__feed, function (data) {
+
+                        var items = data.data;
+                        console.log(data.data);
+                        for (var i = 9; i <= 20; i++){
+
+                            //add an additional 10 items
+                            $("<div>", { 'class': 'morenews__tile','id': "story-"+i}).appendTo("#morenews__lineup");  
+                            $("<div>", { 'class': 'morenews__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
+                            $("<div>", { 'class': 'morenews__hed', 'html': "<h6><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h6>"}).appendTo("#story-"+i);
+
+                        }
+
+                    })
+                    .done(function(){
+                        $(".morenews__tile").fadeIn("slow");
+                    });
+                    
+                } 
+                
+                $("#seemore button").on("click", function(){
+                   seemore__get();
+                });
                 
             });
         </script>

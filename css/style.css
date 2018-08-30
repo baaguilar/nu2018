@@ -171,9 +171,9 @@
     }
 
     #mostpop__lineup {
-        overflow-y:scroll;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         overflow: -moz-scrollbars-auto;
+        overflow-y:scroll;
     }
 
     #mostpop__lineup .card-deck {
@@ -315,6 +315,10 @@
         text-align:center;
         margin-bottom:20px;
     } 
+    
+    #mostpop__lineup .card-img-top {
+        height: 15vw;
+    }
 
     #morenews {
         padding:10px;
@@ -379,6 +383,10 @@
         margin:0;
     }
 
+    #mostpop__lineup .card-img-top {
+        height: 20vw;
+    }
+    
     .morenews__tile {
         width:100%;
     }
