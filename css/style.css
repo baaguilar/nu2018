@@ -87,8 +87,7 @@
     #grid {
         display: grid;
         justify-content: center; /* aligns the grid in the center of your container */
-        grid-column-gap: 10px; /* gap between columns */
-        grid-row-gap: 10px; /* gap between rows */
+        grid-gap: 10px; /* gap between rows */
     }          
 
     #header {
@@ -241,7 +240,7 @@
 
 @media only screen and (min-width: 1241px) {  /* Desktop */
     #grid {
-        grid-template-columns: repeat(8, 145px);
+        grid-template-columns: repeat(8, 145px); /* Including 10px gaps = 1230 width */
         grid-template-rows: auto;
         grid-template-areas: 
         "header   header   header   header   header   header   header   header"
@@ -261,7 +260,7 @@
 
 @media only screen and (max-width: 1240px) {  /* Laptop */
     #grid {
-        grid-template-columns:repeat(6, 145px);
+        grid-template-columns:repeat(6, 145px);  /* Including 10px gaps = 920 width */
         grid-template-rows: auto;
         grid-template-areas: 
         "header   header   header   header   header   header"
@@ -280,7 +279,7 @@
 
 @media only screen and (max-width: 975px) {  /* Tablet */
     #grid {
-        grid-template-columns: repeat(4, 25%);
+        grid-template-columns: repeat(4, 25%); /* Full width */
         grid-template-rows: auto;
         grid-template-areas: 
         "header   header   header   header"
@@ -339,7 +338,7 @@
 
 @media only screen and (max-width: 655px) {  /* Phone */
     #grid {
-        grid-template-columns: repeat(2, 50%);
+        grid-template-columns: repeat(2, 50%); /* Full width */
         grid-template-rows: auto;
         grid-template-areas: 
         "header   header"

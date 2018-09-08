@@ -1,0 +1,56 @@
+#grid {
+    display:grid;
+    grid-gap: 10px; /* shorthand. grid-row-gap, grid-column-gap */
+    grid-template-rows: repeat(4, 200px);
+}
+
+#uno {
+    /*grid-area: 1 / 2 / span 4 / span 2; /* shorthand. grid-row-start, grid-column-start, etc. */
+    grid-area: uno;
+    background-color:pink;
+}
+
+#dos {
+    grid-area: dos;
+    background-color:red;
+}
+
+#tres {
+    grid-area: tres;
+    background-color:aquamarine;
+}
+
+#quatro {
+    grid-area: quatro;
+    background-color:beige;
+}
+
+#cinco {
+    grid-area: cinco;
+    background-color:lightsalmon;
+}
+
+@media only screen and (min-width: 800px) {
+    /* media query for web browsers above 600px */
+    
+    #grid {
+        grid-template-columns: repeat(6, 100px);
+        grid-template-areas: 
+        "uno    uno     uno     dos     dos     tres"
+        "uno    uno     uno     dos     dos     tres"
+        "quatro quatro  cinco   cinco   cinco   tres"
+        "quatro quatro  cinco   cinco   cinco   tres"
+    }
+}
+
+@media only screen and (max-width: 799px) {
+    /* media query for web browsers above 599px */
+    #grid {
+        grid-template-columns: repeat(4, 100px);
+        grid-template-areas: 
+        "uno    uno     dos     dos"
+        "uno    uno     dos     dos"
+        "quatro cinco   cinco   tres"
+        "quatro cinco   cinco   tres"
+    }    
+}
