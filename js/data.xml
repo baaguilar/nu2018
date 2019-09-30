@@ -1,0 +1,13 @@
+<ehs_feed name="CreditCards.com Historical Rate Report">
+  <categories>	  
+      <category id="83" name="Low Interest Credit Cards" link="" currentApr="12.89" lastWeekApr="12.89" sixMonthApr="12.56" lastYearApr="11.98" /> 
+      <category id="102" name="Business Credit Cards" link="" currentApr="13.68" lastWeekApr="13.68" sixMonthApr="13.62" lastYearApr="13.12" /> 
+      <category id="105" name="Balance Transfer Credit Cards" link="" currentApr="15.38" lastWeekApr="15.38" sixMonthApr="14.98" lastYearApr="14.39" />
+      <category id="81" name="Student Credit Cards" link="" currentApr="15.70" lastWeekApr="15.70" sixMonthApr="13.92" lastYearApr="13.42" />
+      <category id="72" name="Airline Credit Cards" link="" currentApr="16.07" lastWeekApr="16.07" sixMonthApr="15.73" lastYearApr="15.13" />
+      <category id="100" name="Reward Credit Cards" link="" currentApr="16.24" lastWeekApr="16.24" sixMonthApr="15.79" lastYearApr="15.30" />
+      <category id="101" name="Cash Back Credit Cards" link="" currentApr="16.40" lastWeekApr="16.40" sixMonthApr="15.76" lastYearApr="15.33" /> 
+      <category id="82" name="Instant Approval Credit Cards" link="" currentApr="18.60" lastWeekApr="18.60" sixMonthApr="18.23" lastYearApr="18.04" />
+      <category id="130" name="Credit Cards For Bad Credit" link="" currentApr="23.46" lastWeekApr="23.46" sixMonthApr="23.20" lastYearApr="22.86"/>
+    </categories>
+</ehs_feed>

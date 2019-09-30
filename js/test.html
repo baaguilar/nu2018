@@ -1,0 +1,155 @@
+<html>
+    <head>Hello World</head>
+    <style>
+        body {
+            font-family:arial,sans-serif;
+            font-size:1em;
+        }
+        
+        .category {
+            font-size:0.7em;
+            color:#ccc;
+        }
+        
+        div {
+            max-width:100px;
+            border:1px solid #ccc;
+            background-color:#efefef;
+            padding:10px;
+            margin:10px;
+        }
+        
+        div:hover  {
+            cursor:pointer;
+        }
+    </style>
+    <body>
+        
+        <h2>Good JavaScript Tutorials</h2>
+        <ul>
+            <li><a href="https://www.w3schools.com/js/" target="_blank">W3Schools - JavaScript</a></li>
+            <li><a href="https://www.w3schools.com/jquery/">W3Schools - jQuery</a></li>
+            <li><a href="https://www.codecademy.com/learn/introduction-to-javascript" target="_blank">Code Academy - JavaScript</a></li>
+        </ul>
+        <h2>References</h2>
+        <ul>
+            <li><a href="http://api.jquery.com/" target="_blank">jQuery Methods</a></li>
+            <li><a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a></li>
+        </ul>
+        
+        <h2>Some functions</h2>
+        <div id="click">Click</div>
+        <div id="hover">Hover & Toggle</div>
+        <div id="animate">Animate</div>
+        <div id="console">Console Log</div>
+        <div id="add">Add</div>
+        <div id="categories">
+            <div id="xml">Run XML</div>
+        </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        
+        $( document ).ready(function() {
+
+            function noop() {} // A No Operation (noop) function
+            
+            // This function runs when the "Run XML" button is clicked
+            function grabXML(){
+                grabXML = noop; // A simple way to allow a function to only work once is to assign the function name to a NOOP function (see above)
+                
+                $.ajax({
+                    url: "data.xml",
+                    dataType: "xml",
+                    success: function(data) { 
+                        var items = data.getElementsByTagName("category");
+
+                        for(i=0; i < items.length; i++){
+                            var nm = $(items[i]).attr("name");
+                            var apr = $(items[i]).attr("currentApr");
+                            var dv = $("<div>",{class:"category"}).text(nm+ " APR: "+apr);
+                            $("#categories").append(dv);
+                        }
+                    },
+                    error: function(){ // spit out error if unable to access feed
+                        $("#xml").hide();
+                        $("#categories").append("<div class='category'>Error. Trouble accessing feed.</div>");
+                    }
+                }); 
+            }
+            
+            //RUN XML -- grabXML() 
+            $("#xml").on("click", function ( event ){
+               grabXML();
+            });
+            
+            //CLICK ELEMENT get an alert
+            $("#click").on("click", function( event ) {
+                alert( "Thanks for playing!" );
+            });
+            
+            //HOVER & TOGGLE ELEMENT
+            $("#hover").hover(
+                function () {
+                    $(this).css({"background-color":"#ccc"}); // mouse over
+                    $(this).text('Hover Over!');
+                }, 
+
+                function () {
+                    $(this).css({"background-color":"#efefef"}); // mouse out
+                    $(this).text('Hover & Toggle');        
+                }    
+            ).click(function(event){
+                $("#click").toggle("slow"); // toggle
+                
+            });
+            
+            
+            var consoleCounter = 0;
+            $("#console").on("click",function( event ){
+                console.log( ++consoleCounter );
+            });
+            
+            // animation function
+            function bringBack(){
+                $( "#animate" ).animate({
+                    opacity: 1.0, // increase the opacity
+                    marginLeft: 10 // set the margin
+                },3000); // amount of milliseconds to run the animation
+            }
+            
+            // keep going ... 
+            function keepGoing(item){
+                $(item).animate({
+                    opacity: "-=0.25", // reduce opacity by 25%
+                    marginLeft: "+=200" // shift things to the right by 200 pixels
+                }, 2000, function() {
+                    if (confirm("Bring back?") === true) { 
+                        bringBack();
+                    } else {
+                       keepGoing("#animate");
+                    }
+                });
+            }
+            
+            $( "#animate" ).click(function() {
+                keepGoing(this); // call the 'keepGoing' function
+            });
+            
+            //ADD NEW ELEMENT
+            var count = 0; // add variable to apply unique id to each new element created
+            $("#add").click(function(event){
+                $(this).after($("<div>",{id:++count,class:"new"}).text(`New ${count}`));
+            });
+            
+             //REMOVE NEW ELEMENT
+            // since we're introducing dynamic new elements, we want to bind the "click" event to the ".new" class
+            // we specify the "document" parent element of the new div in advance
+            $(document).on("click", ".new", function(){
+                $(this).remove(); // this refers to the new div  
+            });
+            
+        });
+    
+    </script>
+    </body>
+</html>

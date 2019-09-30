@@ -9,22 +9,25 @@
             div {
                 padding:10px 0;
             }
+            
         </style>
     </head>
     <body>
         <h1>Rotating Text</h1>
-        <div id="results">Northwestern </div>
+        <div id="results">Northwestern University... </div>
         <script>
             // JavaScript here
             function rotate(){
                 var text = document.getElementById("results").textContent;
-                var textArray = text.split("");
-                var removed = textArray.splice(-1, 1);
-                var added = textArray.splice(0,0,removed);
-                document.getElementById("results").innerHTML = textArray.join("");
+                var textArray = text.split(""); // convert text characters into an array 
+                console.log(textArray);
+                var removed = textArray.splice(-1, 1); // remove 1 character from the end of array
+                console.log(removed);
+                var added = textArray.splice(0,0,removed); // place same character at the start of new array
+                document.getElementById("results").innerHTML = textArray.join(""); // join the array and replace #results with new text block
             }
             
-            setInterval(rotate,100);
+            setInterval(rotate,250); // update every quarter-second
             
         </script>
     </body>
