@@ -135,9 +135,12 @@
                     $.getJSON( mostpop__feed, function( data )  {
 
                         var items = data.data;
-                        for (var i = 0; i < 10; i++){                        
+                        for (var i = 0; i < 10; i++){                 
+                            var img_url = items[i].image_url;
+                            img_url = img_url.replace("http:","https:");
+                            
 
-                            $("<div>", { 'class': 'card','id': i, 'html': "<a href='"+items[i].url+"' target='_blank'><img class='card-img-top' src='"+items[i].image_url+"' alt='"+items[i].title+"' /></a>"}).appendTo("#mostpop__lineup .card-deck");
+                            $("<div>", { 'class': 'card','id': i, 'html': "<a href='"+items[i].url+"' target='_blank'><img class='card-img-top' src='"+img_url+"' alt='"+items[i].title+"' /></a>"}).appendTo("#mostpop__lineup .card-deck");
                             $("<div>", { 'class': 'card-body', 'html': "<h5 class='card-title'><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h5><a href='"+items[i].url+"' class='btn btn-outline-primary'>Read More</a>"}).appendTo("#mostpop__lineup #"+i);
                         }
 
@@ -155,28 +158,31 @@
                     
                         var items = data.data;
                         for (var i = 0; i <= 8; i++){
-
+                            
+                            var img_url = items[i].image_url;
+                            img_url = img_url.replace("http:","https:");
+                            
                             if(i === 0){
 
-                                $("<div>", { 'class': 'card','id': "story-"+i, 'html': "<a href='"+items[i].url+"' target='_blank'><img class='card-img-top' src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#lede");   
+                                $("<div>", { 'class': 'card','id': "story-"+i, 'html': "<a href='"+items[i].url+"' target='_blank'><img class='card-img-top' src='"+img_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#lede");   
                                 $("<div>", { 'class': 'card-body', 'html': "<h2><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h2>"}).appendTo("#story-"+i);
 
                             } else if (i === 1){
 
                                 $("<div>", { 'class': 'main__tile','id': "story-"+i}).appendTo("#first");  
-                                $("<div>", { 'class': 'main__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
+                                $("<div>", { 'class': 'main__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+img_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
                                 $("<div>", { 'class': 'main__hed', 'html': "<h5><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h5>"}).appendTo("#story-"+i);
 
                             } else if (i === 2){
 
                                 $("<div>", { 'class': 'main__tile','id': "story-"+i}).appendTo("#second");  
-                                $("<div>", { 'class': 'main__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
+                                $("<div>", { 'class': 'main__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+img_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
                                 $("<div>", { 'class': 'main__hed', 'html': "<h5><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h5>"}).appendTo("#story-"+i);
 
                             }  else if (i >=3){
 
                                $("<div>", { 'class': 'morenews__tile','id': "story-"+i}).appendTo("#morenews__lineup");  
-                                $("<div>", { 'class': 'morenews__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
+                                $("<div>", { 'class': 'morenews__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+img_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
                                 $("<div>", { 'class': 'morenews__hed', 'html': "<h6><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h6>"}).appendTo("#story-"+i);
 
                             } 
@@ -213,7 +219,7 @@
 
                             //add an additional 10 items
                             $("<div>", { 'class': 'morenews__tile','id': "story-"+i}).appendTo("#morenews__lineup");  
-                            $("<div>", { 'class': 'morenews__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+items[i].image_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
+                            $("<div>", { 'class': 'morenews__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+img_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
                             $("<div>", { 'class': 'morenews__hed', 'html': "<h6><a href='"+items[i].url+"' target='_blank'>"+items[i].title+"</a></h6>"}).appendTo("#story-"+i);
 
                         }
