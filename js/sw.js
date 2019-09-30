@@ -1,8 +1,8 @@
 const cacheName = 'v1';
 const cacheAssets = [
-    '/index.html',
-    '/css/style.css',
-    '/index.php'
+    './index.html',
+    './css/style.css',
+    './index.php'
 ];
 
 
