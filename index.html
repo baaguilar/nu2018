@@ -212,7 +212,10 @@
                     $("#seemore button").remove();
                     
                     $.getJSON( main__feed, function (data) {
-
+                        
+                        var img_url = items[i].image_url;
+                        img_url = img_url.replace("http:","https:");
+                        
                         var items = data.data;
                         console.log(data.data);
                         for (var i = 9; i <= 20; i++){
