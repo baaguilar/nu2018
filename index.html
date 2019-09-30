@@ -111,7 +111,6 @@
                     Copyright © <span id="footyr"></span> MarketWatch, Inc. All rights reserved.
             </div>
         </div>
-        <div class="ad2hs-prompt" style="display:none;">Testing!</div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -213,13 +212,15 @@
                     
                     $.getJSON( main__feed, function (data) {
                         
-                        var img_url = items[i].image_url;
-                        img_url = img_url.replace("http:","https:");
+                        
                         
                         var items = data.data;
                         console.log(data.data);
                         for (var i = 9; i <= 20; i++){
 
+                            var img_url = items[i].image_url;
+                            img_url = img_url.replace("http:","https:");
+                            
                             //add an additional 10 items
                             $("<div>", { 'class': 'morenews__tile','id': "story-"+i}).appendTo("#morenews__lineup");  
                             $("<div>", { 'class': 'morenews__image', 'html': "<a href='"+items[i].url+"' target='_blank'><img src='"+img_url+"' width='100%' border='0' alt='"+items[i].title+"' /></a>"}).appendTo("#story-"+i); 
@@ -248,44 +249,6 @@
                         .catch(err => console.log('Service Worker: Error: '+err))
                     })
             }
-            
-            var deferredPrompt;
-
-            window.addEventListener('beforeinstallprompt', function (e) {
-              // Prevent Chrome 67 and earlier from automatically showing the prompt
-              e.preventDefault();
-              // Stash the event so it can be triggered later.
-              deferredPrompt = e;
-
-              showAddToHomeScreen();
-
-            });
-            
-            function showAddToHomeScreen() {
-
-              var a2hsBtn = document.querySelector(".ad2hs-prompt");
-
-              a2hsBtn.style.display = "block";
-
-              a2hsBtn.addEventListener("click", addToHomeScreen);
-
-            }
-            
-            function addToHomeScreen() {  var a2hsBtn = document.querySelector(".ad2hs-prompt");  // hide our user interface that shows our A2HS button
-              a2hsBtn.style.display = 'none';  // Show the prompt
-              deferredPrompt.prompt();  // Wait for the user to respond to the prompt
-              deferredPrompt.userChoice
-                .then(function(choiceResult){
-
-              if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the A2HS prompt');
-              } else {
-                console.log('User dismissed the A2HS prompt');
-              }
-
-              deferredPrompt = null;
-
-            });}
             
         </script>
     </body>
